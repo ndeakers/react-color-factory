@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 
-function ColorList({ colors }) {
-
+function ColorList({ colorList }) {
+  console.log("colorList in ColorList", colorList)
   // make state to add new color here
 
   // create a function to set state. pass to form
@@ -15,7 +15,7 @@ function ColorList({ colors }) {
       <Link exact to="/colors/new">Add a Color!</Link>
       <h4>Please select a color</h4>
       <ul>
-        {colors.map(color => <li key={color.hexCode}>
+        {colorList.map(color => <li key={color.hexCode}>
           <Link exact to={`/colors/${color.name}`}>{color.name}</Link>
         </li>)}
       </ul>

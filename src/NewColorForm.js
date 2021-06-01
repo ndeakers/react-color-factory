@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useHistory } from 'react-router-dom';
 
 function NewColorForm({ addColor }) {
   const [formData, setFormData] = useState({ name: "", hexCode: "" });
+  const history = useHistory();
 
   function handleChange(evt) {
     const { name, value } = evt.target;
@@ -15,6 +17,7 @@ function NewColorForm({ addColor }) {
     console.log("handleSubmit ran")
     evt.preventDefault();
     addColor(formData);
+    history.push("/colors")
   }
 
   return (<div>
